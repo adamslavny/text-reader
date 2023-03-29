@@ -4,8 +4,8 @@ const LOOK_DELAY = 1000
 const PAGE_DELAY = 2000
 const TOP_CUTOFF = window.innerHeight / 4
 const BOTTOM_CUTOFF = window.innerHeight - window.innerHeight / 4
-const LEFT_CUTOFF = window.innerHeight / 4
-const RIGHT_CUTOFF = window.innerHeight - window.innerHeight / 4
+const LEFT_CUTOFF = window.innerWidth / 4
+const RIGHT_CUTOFF = window.innerWidth - window.innerWidth / 4
 
 let startTime = Number.POSITIVE_INFINITY
 let lookDirection = null
