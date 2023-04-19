@@ -47,6 +47,23 @@ webgazer.setGazeListener((data, timestamp) => {
         }
     }
 
+    //making page turns faster at the bottom of the page
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+        console.log("you're at the bottom of the page")
+        if(lookDirection == 'BOTTOM' && data.x > RIGHT_CUTOFF)
+        {
+            console.log("shortcut")
+            ld2 = null
+            st2 = Number.POSITIVE_INFINITY
+            const isValidPage = currentPDF.currentPage < currentPDF.countOfPages;
+	        if (isValidPage) {
+		    currentPDF.currentPage += 1;
+		    renderCurrentPage();
+            window.scrollTo(0,0)
+            }
+        }
+    }
+
     if(st2 + PAGE_DELAY < timestamp){
         if(ld2 == 'RIGHT'){
             console.log("look right")
@@ -68,3 +85,5 @@ webgazer.setGazeListener((data, timestamp) => {
     }
 
 }).begin()
+
+webgazer.showVideoPreview(false)

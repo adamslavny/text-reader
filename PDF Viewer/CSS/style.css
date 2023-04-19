@@ -76,7 +76,7 @@ footer{
 }
 
 button:active > *{
-	color: #8d8d8d;
+	color: #2600ff;
 }
 
 footer ul{
@@ -111,5 +111,11 @@ footer ul li:last-child{
 	color:#eee;
 }
 
-
+#switchModes{
+	position: fixed;
+	font-size: 1.2rem;
+	font-weight: 700;
+	position: left;
+	color:#eee;
+}
 

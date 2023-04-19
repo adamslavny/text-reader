@@ -3,6 +3,7 @@ const input = document.getElementById('inputFile');
 const openFile = document.getElementById('openPDF');
 const currentPage = document.getElementById('current_page');
 const viewer = document.querySelector('.pdf-viewer');
+let sw = true;
 let currentPDF = {}
 
 function resetCurrentPDF() {
@@ -13,6 +14,19 @@ function resetCurrentPDF() {
 		zoom: 1.5
 	}
 }
+
+switchModes.addEventListener('click', () => {
+	if(sw == true)
+	{
+		console.log("switch clicked");
+		webgazer.pause();
+		webgazer.showPredictionPoints(false);
+		sw = false;
+	}else if(sw == false){
+		webgazer.resume();
+		webgazer.showPredictionPoints(true);
+	}
+})
 
 
 openFile.addEventListener('click', () => {

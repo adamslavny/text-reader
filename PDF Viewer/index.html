@@ -12,11 +12,19 @@
 		integrity="sha512-U5C477Z8VvmbYAoV4HDq17tf4wG6HXPC6/KM9+0/wEXQQ13gmKY2Zb0Z2vu0VNUWch4GlJ+Tl/dfoLOH4i2msw==" crossorigin="anonymous"
 		referrerpolicy="no-referrer"></script>
 	<script src="https://webgazer.cs.brown.edu/webgazer.js?" defer></script>
+	<script src="https://cdn.jsdelivr.net /npm/handtrackjs@latest /dist/handtrack.min.js"></script>
 	<script src="JS/script.js" defer></script>
 	<title>PDF Viewer</title>
 </head>
 
 <body>
+	<header>
+		<li>
+			<button id="switchModes">
+				<span>Switch Modes</span>
+			</button>
+		</li>
+	</header>
 	<main>
 		<h3>Open a PDF file</h3>
 		<canvas class="pdf-viewer hidden">
