@@ -104,3 +104,21 @@ let vid = true;
         //known bug
 	}
  }
+
+ let p = true;
+ function pause()
+ {
+    var x = document.getElementById("pauseButton");
+    if(p == true)
+    {
+        webgazer.pause();
+        x.style.innerText = "Click to Resume"
+        p = false;
+    }
+    else if(p == false)
+    {
+        webgazer.resume();
+        x.style.innerText = "Click to Pause"
+        p = true;
+    }
+ }

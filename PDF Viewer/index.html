@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eye Tracking</title>
     <link rel="stylesheet" href="CSS/style.css" type="text/css" />
     <link
       rel="stylesheet"
@@ -26,11 +27,12 @@
   <body>
     <header>
       <div class="header-right">
-        <button onclick="" id="switchModes">
+        <button onclick="window.location.href='hand.html'" id="switchModes">
           Switch Modes
         </button>
         <button onclick="togVideo()" id="toggleVideo">Turn Off Video</button>
         <button onclick="instruct()" id="instructions">Instructions</button>
+        <button onclick="pause()" id="pauseButton">Click to Pause</button>
       </div>
     </header>
     <main>
