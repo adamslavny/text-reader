@@ -86,4 +86,21 @@ webgazer.setGazeListener((data, timestamp) => {
 
 }).begin()
 
-webgazer.showVideoPreview(false)
+let vid = true;
+ function togVideo()
+ {
+
+    console.log("Makingit here");
+    console.log(vid);
+    if(vid == true)
+	{
+		webgazer.showVideoPreview(false);
+		vid = false;
+	}
+	else if(vid == false)
+	{
+        webgazer.showVideoPreview(true);
+		vid = true;
+        //known bug
+	}
+ }
