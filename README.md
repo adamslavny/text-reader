@@ -1,5 +1,8 @@
 # text-reader
 Group project for Natural User Interaction. Eye tracker and gestures to interact with text
+To start the project simply open the index.html with a live server
+You need to be connected to the internet
+
 CEN4725/5726 Natural User Interaction
 Course Project Final Paper
 
