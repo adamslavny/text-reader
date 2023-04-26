@@ -11,6 +11,8 @@ let startTime = Number.POSITIVE_INFINITY
 let lookDirection = null
 let st2 = Number.POSITIVE_INFINITY
 let ld2 = null
+let update = document.getElementById("toggleVideo");
+let x = document.getElementById("pauseButton");
 
 webgazer.setGazeListener((data, timestamp) => {
     if(data.y == null) data.y = null
@@ -86,39 +88,36 @@ webgazer.setGazeListener((data, timestamp) => {
 
 }).begin()
 
-let vid = true;
+//This function toggles the video for the eye tracker on and off. It doesnt pause funcationality
  function togVideo()
  {
 
-    console.log("Makingit here");
-    console.log(vid);
-    if(vid == true)
-	{
-		webgazer.showVideoPreview(false);
-		vid = false;
-	}
-	else if(vid == false)
-	{
-        webgazer.showVideoPreview(true);
-		vid = true;
-        //known bug
-	}
+    var x = document.getElementById("webgazerVideoContainer");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        update.innerText = "Turn Video Off";
+    } else {
+        x.style.display = "none";
+        update.innerText = "Turn Video On";
+    }
+
  }
 
+ //This function pauses the actual functionality of the eyetracker
  let p = true;
  function pause()
  {
-    var x = document.getElementById("pauseButton");
+    
     if(p == true)
     {
         webgazer.pause();
-        x.style.innerText = "Click to Resume"
+        x.innerText = "Click to Resume";
         p = false;
     }
     else if(p == false)
     {
         webgazer.resume();
-        x.style.innerText = "Click to Pause"
+        x.innerText = "Click to Pause";
         p = true;
     }
  }

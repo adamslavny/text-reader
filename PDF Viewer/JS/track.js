@@ -43,6 +43,7 @@ function toggleVideo() {
 
 function runDetection() {
     model.detect(video).then(predictions => {
+        
         console.log("Predictions: ", predictions);
         model.renderPredictions(predictions, canvas, context, video);
         if (isVideo) {
