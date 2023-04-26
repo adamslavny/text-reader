@@ -40,12 +40,33 @@ function toggleVideo() {
 }
 
 
-
+let canFlipPage = true;
 function runDetection() {
     model.detect(video).then(predictions => {
         
         console.log("Predictions: ", predictions);
         model.renderPredictions(predictions, canvas, context, video);
+        
+        const pointPredictions = predictions.filter(p => p.label === 'point');
+        const closePredictions = predictions.filter(p => p.label === 'closed');
+        
+        if (pointPredictions.length === 1 && currentPDF.currentPage < currentPDF.countOfPages && canFlipPage) {
+            currentPDF.currentPage += 1;
+            renderCurrentPage();
+            canFlipPage = false;
+            setTimeout(() => {
+                canFlipPage = true;
+            }, 3000);
+        } else if (closePredictions.length === 1 && currentPDF.currentPage > 1 && canFlipPage) {
+            currentPDF.currentPage -= 1;
+            renderCurrentPage();
+            canFlipPage = false;
+            setTimeout(() => {
+                canFlipPage = true;
+            }, 3000);
+        }
+        
+        
         if (isVideo) {
             requestAnimationFrame(runDetection);
         }
@@ -59,6 +80,7 @@ handTrack.load(modelParams).then(lmodel => {
     updateNote.innerText = "Click to Begin"
     //trackButton.disabled = false
     //can choose to automatically start up here
+    startVideo();
 });
 
 
